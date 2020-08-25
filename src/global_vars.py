@@ -77,6 +77,8 @@ def estimate_lmin_lmax():
 	num = 0
 	for i,chrm in enumerate(reads.references):
 		for read in reads.fetch(chrm):
+			if type(read.reference_start) != int or type(read.reference_end) != int:
+				continue
 			num += 1
 			if num > 1000000:
 				break
